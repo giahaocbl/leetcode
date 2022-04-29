@@ -3,6 +3,7 @@ import java.util.Queue;
 
 // 111. Minimum Depth of Binary Tree
 public class MinimumDepthOfBinaryTreeSolution {
+
     // DFS
      public int minDepthDFS(TreeNode root) {
          if (root == null)
