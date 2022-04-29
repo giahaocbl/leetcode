@@ -5,6 +5,7 @@ import java.util.Queue;
 
 // 637. Average of Levels in Binary Tree
 public class AverageOfLevelInBinaryTreeSolution {
+
     // BFS Solution (Better Solution)
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> avg = new ArrayList<>();
