@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class TwoPointersSolutions {
     // 141. Linked List Cycle
     public boolean hasCycle(ListNode head) {
@@ -109,5 +111,55 @@ public class TwoPointersSolutions {
          }
          curr.next = list1 == null ? list2 : list1;
          return root.next;
+     }
+
+     // 1. Two Sum
+     public int[] twoSum(int[] nums, int target) {
+         HashMap<Integer, Integer> map = new HashMap<>();
+         for (int i=0; i<nums.length; i++) {
+             int tmp = target - nums[i];
+             if (map.containsKey(tmp))
+                 return new int[] {map.get(tmp), i};
+             else
+                 map.put(nums[i], i);
+         }
+         return new int[] {-1, -1};
+     }
+
+     // 977. Squares of a Sorted Array
+     public int[] sortedSquares(int[] nums) {
+         int[] res = new int[nums.length];
+         int left = 0, right = nums.length - 1, curr = right;
+         while (curr >= 0) {
+             if (Math.abs(nums[left]) > Math.abs(nums[right]))
+                 res[curr--] = nums[left] * nums[left++];
+             else
+                 res[curr--] = nums[right] * nums[right--];
+         }
+         return res;
+     }
+
+     // 844. Backspace String Compare
+     public boolean backspaceCompare(String s, String t) {
+        int si = s.length() - 1, ti = t.length() - 1;
+        while (si>=0 || ti>=0) {
+            int count = 0;
+            while (si >=0 && (count > 0 || s.charAt(si) == '#')) {
+                count += s.charAt(si) == '#' ? 1 : -1;
+                si--;
+            }
+            count = 0;
+            while (ti >=0 && (count > 0 || t.charAt(ti) == '#')) {
+                count += t.charAt(ti) == '#' ? 1 : -1;
+                ti--;
+            }
+            if (si<0 || ti<0)
+                return si*ti>0;
+            if (s.charAt(si) != t.charAt(ti))
+                return false;
+            si--;
+            ti--;
+        }
+        return true;
      }
 }
