@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution {
+public class ArraySolutions {
     // 136. Single Number
     public int singleNumber(int[] nums) {
         int res = nums[0];
@@ -75,5 +75,36 @@ public class Solution {
         return sell;
     }
 
-    
+    // 53. Maximum Subarray
+    public int maxSubArray(int[] nums) {
+        int curSum = nums[0], maxSum = nums[0];
+        for (int i=1; i<nums.length; i++) {
+            curSum = Math.max(curSum + nums[i], nums[i]);
+            maxSum = Math.max(maxSum, curSum);
+        }
+        return maxSum;
+    }
+
+    // 338. Counting Bits
+    public int[] countBits(int n) {
+        int[] ans = new int[n+1];
+        ans[0] = 0;
+        if (n == 0)
+            return ans;
+        ans[1] = 1;
+        for (int i=1; i<n; i++) {
+            int e = (int)Math.pow(2, i);
+            if (e > n)
+                return ans;
+            ans[e] = 1;
+            for (int j=1; j<e; j++) {
+                if (e + j > n)
+                    return ans;
+                ans[e + j] = 1 + ans[j];
+            }
+        }
+        return ans;
+    }
+
+
 }
