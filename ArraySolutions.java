@@ -106,5 +106,57 @@ public class ArraySolutions {
         return ans;
     }
 
+    // 2022. Convert 1D Array Into 2D Array
+    public int[][] construct2DArray(int[] original, int m, int n) {
+        int idx = 0;
+        int[][] res = new int[m][n];
+        for (int i=0; i<m; i++) {
+            for (int j=0; j<n; j++) {
+                res[i][j] = original[idx++];
+            }
+        }
+        return res;
+    }
 
+    // 169. Majority Element
+    public int majorityElement(int[] nums) {
+        int count = 1, major = nums[0];
+        for (int i=1; i<nums.length; i++) {
+            if (count == 0)
+                major = nums[i];
+            count += (nums[i] == major) ? 1 : -1;
+        }
+        return major;
+    }
+
+    // 238. Product of Array Except Self
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] res = new int[n];
+        res[0] = nums[0];
+        for (int i=1; i<n; i++)
+            res[i] = res[i-1] * nums[i];
+        int right = 1;
+        for (int i=n-1; i>0; i--) {
+            res[i] = res[i-1] * right;
+            right = right * nums[i];
+        }
+        res[0] = right;
+        return res;
+    }
+
+    // 905. Sort Array By Parity
+    public int[] sortArrayByParity(int[] nums) {
+        int left = 0, right = nums.length - 1;
+        while (right >= left) {
+            if (nums[right] % 2 == 0) {
+                int temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+            } else
+                right--;
+        }
+        return nums;
+    }
 }
