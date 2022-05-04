@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ArraySolutions {
     // 136. Single Number
@@ -173,5 +170,19 @@ public class ArraySolutions {
                 l = n - i - 1;
         }
         return r - l + 1;
+    }
+
+    // 1679. Max Number of K-Sum Pairs
+    public int maxOperations(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int ans = 0;
+        for (int i : nums) {
+            if (map.containsKey(i) && map.get(i)>0) {
+                ans++;
+                map.put(i, map.get(i) - 1);
+            } else
+                map.put(k - i, map.getOrDefault(k - i, 0) + 1);
+        }
+        return ans;
     }
 }
