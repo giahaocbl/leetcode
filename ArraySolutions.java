@@ -159,4 +159,19 @@ public class ArraySolutions {
         }
         return nums;
     }
+
+    // 581. Shortest Unsorted Continuous Subarray
+    public int findUnsortedSubarray(int[] nums) {
+        int n = nums.length;
+        int max = nums[0], min = nums[n-1], l = -1, r = -2;
+        for (int i=1; i<n; i++) {
+            max = Math.max(max, nums[i]);
+            min = Math.min(min, nums[n-i-1]);
+            if (nums[i] < max)
+                r = i;
+            if (nums[n-i-1] > min)
+                l = n - i - 1;
+        }
+        return r - l + 1;
+    }
 }
