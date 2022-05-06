@@ -185,4 +185,34 @@ public class ArraySolutions {
         }
         return ans;
     }
+
+    // 1209. Remove All Adjacent Duplicates in String II
+    public String removeDuplicates(String s, int k) {
+        Stack<Character> stack = new Stack<>();
+        Stack<Integer> count = new Stack<>();
+        stack.push(s.charAt(0));
+        count.push(1);
+        for (int i=1; i<s.length(); i++) {
+            if (!stack.isEmpty() && stack.peek() == s.charAt(i)) {
+                if (count.peek() == k-1) {
+                    count.pop();
+                    stack.pop();
+                } else {
+                    count.push(count.pop()+1);
+                }
+            } else {
+                stack.push(s.charAt(i));
+                count.push(1);
+            }
+        }
+        s = "";
+        while (!stack.isEmpty()) {
+            char c = stack.pop();
+            int j = count.pop();
+            for (int i=0; i<j; i++)
+                s = c + s;
+        }
+        return s;
+    }
+
 }
