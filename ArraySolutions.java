@@ -217,4 +217,17 @@ public class ArraySolutions {
         return s;
     }
 
+    // 646. Maximum Length of Pair Chain
+    public static int findLongestChain(int[][] pairs) {
+        Arrays.sort(pairs, Comparator.comparing(o -> o[1]));
+        int len = 1, n = pairs.length;
+        int[] last = pairs[0];
+        for (int i = 1; i < n; i++) {
+            if (pairs[i][0] > last[1]) {
+                len++;
+                last = pairs[i];
+            }
+        }
+        return len;
+    }
 }
