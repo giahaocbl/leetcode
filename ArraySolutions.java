@@ -1,8 +1,10 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ArraySolutions {
     // 136. Single Number
-    public int singleNumber(int[] nums) {
+    public static int singleNumber(int[] nums) {
         int res = nums[0];
         for (int i=1; i<nums.length; i++) {
             res = res ^ nums[i];
@@ -11,7 +13,7 @@ public class ArraySolutions {
     }
 
     // 268. Missing Number
-    public int missingNumber(int[] nums) {
+    public static int missingNumber(int[] nums) {
         int sum = nums[0], max = nums[0];
         int n = nums.length;
         for (int i=1; i<n; i++) {
@@ -24,7 +26,7 @@ public class ArraySolutions {
     }
 
     // 217. Contains Duplicate
-    public boolean containsDuplicate(int[] nums) {
+    public static boolean containsDuplicate(int[] nums) {
         Set<Integer> l = new HashSet<>();
         for (int i : nums) {
             if (l.contains(i))
@@ -36,7 +38,7 @@ public class ArraySolutions {
     }
 
     // 448. Find All Numbers Disappeared in an Array
-    public List<Integer> findDisappearedNumbers(int[] nums) {
+    public static List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> res = new ArrayList<>();
         for (int i=0; i<nums.length; i++) {
             int x = Math.abs(nums[i]) - 1;
@@ -50,7 +52,7 @@ public class ArraySolutions {
     }
 
     // 70. Climbing Stairs
-    public int climbStairs(int n) {
+    public static int climbStairs(int n) {
         if (n == 1 || n == 2)
             return n;
         int x1 = 1, x2 = 2, x = 3;
@@ -63,7 +65,7 @@ public class ArraySolutions {
     }
 
     // 121. Best Time to Buy and Sell Stock
-    public int maxProfit(int[] prices) {
+    public static int maxProfit(int[] prices) {
         int buy = prices[0], sell = 0;
         for (int i=0; i<prices.length; i++) {
             buy = Math.min(buy, prices[i]);
@@ -73,7 +75,7 @@ public class ArraySolutions {
     }
 
     // 53. Maximum Subarray
-    public int maxSubArray(int[] nums) {
+    public static int maxSubArray(int[] nums) {
         int curSum = nums[0], maxSum = nums[0];
         for (int i=1; i<nums.length; i++) {
             curSum = Math.max(curSum + nums[i], nums[i]);
@@ -83,7 +85,7 @@ public class ArraySolutions {
     }
 
     // 338. Counting Bits
-    public int[] countBits(int n) {
+    public static int[] countBits(int n) {
         int[] ans = new int[n+1];
         ans[0] = 0;
         if (n == 0)
@@ -104,7 +106,7 @@ public class ArraySolutions {
     }
 
     // 2022. Convert 1D Array Into 2D Array
-    public int[][] construct2DArray(int[] original, int m, int n) {
+    public static int[][] construct2DArray(int[] original, int m, int n) {
         int idx = 0;
         int[][] res = new int[m][n];
         for (int i=0; i<m; i++) {
@@ -116,7 +118,7 @@ public class ArraySolutions {
     }
 
     // 169. Majority Element
-    public int majorityElement(int[] nums) {
+    public static int majorityElement(int[] nums) {
         int count = 1, major = nums[0];
         for (int i=1; i<nums.length; i++) {
             if (count == 0)
@@ -127,7 +129,7 @@ public class ArraySolutions {
     }
 
     // 238. Product of Array Except Self
-    public int[] productExceptSelf(int[] nums) {
+    public static int[] productExceptSelf(int[] nums) {
         int n = nums.length;
         int[] res = new int[n];
         res[0] = nums[0];
@@ -143,7 +145,7 @@ public class ArraySolutions {
     }
 
     // 905. Sort Array By Parity
-    public int[] sortArrayByParity(int[] nums) {
+    public static int[] sortArrayByParity(int[] nums) {
         int left = 0, right = nums.length - 1;
         while (right >= left) {
             if (nums[right] % 2 == 0) {
@@ -158,7 +160,7 @@ public class ArraySolutions {
     }
 
     // 581. Shortest Unsorted Continuous Subarray
-    public int findUnsortedSubarray(int[] nums) {
+    public static int findUnsortedSubarray(int[] nums) {
         int n = nums.length;
         int max = nums[0], min = nums[n-1], l = -1, r = -2;
         for (int i=1; i<n; i++) {
@@ -173,7 +175,7 @@ public class ArraySolutions {
     }
 
     // 1679. Max Number of K-Sum Pairs
-    public int maxOperations(int[] nums, int k) {
+    public static int maxOperations(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
         int ans = 0;
         for (int i : nums) {
@@ -187,7 +189,7 @@ public class ArraySolutions {
     }
 
     // 1209. Remove All Adjacent Duplicates in String II
-    public String removeDuplicates(String s, int k) {
+    public static String removeDuplicates(String s, int k) {
         Stack<Character> stack = new Stack<>();
         Stack<Integer> count = new Stack<>();
         stack.push(s.charAt(0));
