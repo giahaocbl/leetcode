@@ -1,4 +1,4 @@
-// public static static
+// 543. Diameter of Binary Tree
 public class DiameterOfBinaryTree {
     private static int ans;
 
