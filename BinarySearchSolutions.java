@@ -1,6 +1,6 @@
 public class BinarySearchSolutions {
     // 704. Binary Search
-    public int search(int[] nums, int target) {
+    public static int search(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
         while (l<=r) {
             int mid = l + (r-l)/2;
@@ -15,7 +15,7 @@ public class BinarySearchSolutions {
     }
 
     // 744. Find Smallest Letter Greater Than Target
-    public char nextGreatestLetter(char[] letters, char target) {
+    public static char nextGreatestLetter(char[] letters, char target) {
         int l = 0, r = letters.length - 1;
         while (l <= r) {
             int mid = l + (r-l)/2;
@@ -28,7 +28,7 @@ public class BinarySearchSolutions {
     }
 
     // 852. Peak Index in a Mountain Array
-    public int peakIndexInMountainArray(int[] arr) {
+    public static int peakIndexInMountainArray(int[] arr) {
         int l = 1, r = arr.length - 2;
         while (l <= r) {
             int mid = l + (r-l)/2;

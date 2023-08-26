@@ -7,7 +7,7 @@ import java.util.Queue;
 public class AverageOfLevelInBinaryTreeSolution {
 
     // BFS Solution (Better Solution)
-    public List<Double> averageOfLevels(TreeNode root) {
+    public static List<Double> averageOfLevels(TreeNode root) {
         List<Double> avg = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
@@ -28,7 +28,7 @@ public class AverageOfLevelInBinaryTreeSolution {
     }
 
     // DFS Solution
-     public List<Double> averageOfLevelsDFS(TreeNode root) {
+     public static List<Double> averageOfLevelsDFS(TreeNode root) {
          List<Double> res = new ArrayList<>();
          List<Integer> count = new ArrayList();
          average(root, 0, res, count);
@@ -38,7 +38,7 @@ public class AverageOfLevelInBinaryTreeSolution {
          return res;
      }
 
-     public void average(TreeNode node, int i, List<Double> sum, List<Integer> count) {
+     public static void average(TreeNode node, int i, List<Double> sum, List<Integer> count) {
          if (node == null)
              return;
          if (i < sum.size()) {

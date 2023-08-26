@@ -1,14 +1,14 @@
-// 543. Diameter of Binary Tree
+// public static static
 public class DiameterOfBinaryTree {
-    private int ans;
+    private static int ans;
 
-    public int diameterOfBinaryTree(TreeNode root) {
+    public static int diameterOfBinaryTree(TreeNode root) {
         ans = 0;
         maxDepth(root);
         return ans;
     }
 
-    public int maxDepth(TreeNode root) {
+    public static int maxDepth(TreeNode root) {
         if (root == null)
             return 0;
         int lDepth = maxDepth(root.left);

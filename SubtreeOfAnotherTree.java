@@ -1,6 +1,6 @@
 // 572. Subtree of Another Tree
 public class SubtreeOfAnotherTree {
-    public boolean isSame(TreeNode p, TreeNode q) {
+    public static boolean isSame(TreeNode p, TreeNode q) {
         if (p == null || q == null)
             return p == q;
         if (p.val != q.val)
@@ -8,7 +8,7 @@ public class SubtreeOfAnotherTree {
         return isSame(p.left, q.left) && isSame(p.right, q.right);
     }
 
-    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+    public static boolean isSubtree(TreeNode root, TreeNode subRoot) {
         if (root == null)
             return false;
         if (isSame(root, subRoot))

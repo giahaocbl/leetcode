@@ -3,7 +3,7 @@ import java.util.Stack;
 // 617. Merge Two Binary Trees
 public class MergeTwoBinaryTree {
     // Recursion Solution
-    public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
+    public static TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
          if (root1 == null || root2 == null)
              return root1 == null ? root2 : root1;
          root1.val += root2.val;
@@ -13,7 +13,7 @@ public class MergeTwoBinaryTree {
     }
 
     // Iterator Solution
-    public TreeNode mergeTrees2(TreeNode root1, TreeNode root2) {
+    public static TreeNode mergeTrees2(TreeNode root1, TreeNode root2) {
         if (root1 == null)
             return root2;
         Stack<TreeNode[]> stack = new Stack<>();

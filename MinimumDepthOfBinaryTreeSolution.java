@@ -5,7 +5,7 @@ import java.util.Queue;
 public class MinimumDepthOfBinaryTreeSolution {
 
     // DFS
-     public int minDepthDFS(TreeNode root) {
+     public static int minDepthDFS(TreeNode root) {
          if (root == null)
              return 0;
          int lDepth = minDepth(root.left);
@@ -16,7 +16,7 @@ public class MinimumDepthOfBinaryTreeSolution {
      }
 
     // BFS (Better Solution)
-    public int minDepth(TreeNode root) {
+    public static int minDepth(TreeNode root) {
         if (root == null)
             return 0;
         Queue<TreeNode> queue = new LinkedList<>();

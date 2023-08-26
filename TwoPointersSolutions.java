@@ -2,7 +2,7 @@ import java.util.HashMap;
 
 public class TwoPointersSolutions {
     // 141. Linked List Cycle
-    public boolean hasCycle(ListNode head) {
+    public static boolean hasCycle(ListNode head) {
         if (head == null)
             return false;
         ListNode slow = head, fast = head.next;
@@ -16,7 +16,7 @@ public class TwoPointersSolutions {
     }
 
     // 876. Middle of the Linked List
-    public ListNode middleNode(ListNode head) {
+    public static ListNode middleNode(ListNode head) {
         ListNode slow = head, fast = head.next;
         while (fast != null) {
             if (fast.next == null)
@@ -28,7 +28,7 @@ public class TwoPointersSolutions {
     }
 
     // 234. Palindrome Linked List
-     public ListNode reverse(ListNode head) {
+     public static ListNode reverse(ListNode head) {
          ListNode prev = null;
          while (head != null) {
              ListNode tmp = head;
@@ -39,7 +39,7 @@ public class TwoPointersSolutions {
          return prev;
      }
 
-     public boolean isPalindrome(ListNode head) {
+     public static boolean isPalindrome(ListNode head) {
          ListNode slow = head, fast = head;
          ListNode prev = head;
          while (fast != null && fast.next != null) {
@@ -63,7 +63,7 @@ public class TwoPointersSolutions {
      }
 
      // 203. Remove Linked List Elements
-     public ListNode removeElements(ListNode head, int val) {
+     public static ListNode removeElements(ListNode head, int val) {
          while (head != null && head.val == val) {
              head = head.next;
          }
@@ -81,7 +81,7 @@ public class TwoPointersSolutions {
      }
 
      // 83. Remove Duplicates from Sorted List
-     public ListNode deleteDuplicates(ListNode head) {
+     public static ListNode deleteDuplicates(ListNode head) {
          if (head == null)
              return head;
          ListNode cur = head.next, prev = head;
@@ -96,7 +96,7 @@ public class TwoPointersSolutions {
      }
 
      // 21. Merge Two Sorted Lists
-     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+     public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
          ListNode curr = new ListNode(-1);
          ListNode root = curr;
          while (list1 != null && list2 != null) {
@@ -114,7 +114,7 @@ public class TwoPointersSolutions {
      }
 
      // 1. Two Sum
-     public int[] twoSum(int[] nums, int target) {
+     public static int[] twoSum(int[] nums, int target) {
          HashMap<Integer, Integer> map = new HashMap<>();
          for (int i=0; i<nums.length; i++) {
              int tmp = target - nums[i];
@@ -127,7 +127,7 @@ public class TwoPointersSolutions {
      }
 
      // 977. Squares of a Sorted Array
-     public int[] sortedSquares(int[] nums) {
+     public static int[] sortedSquares(int[] nums) {
          int[] res = new int[nums.length];
          int left = 0, right = nums.length - 1, curr = right;
          while (curr >= 0) {
@@ -140,7 +140,7 @@ public class TwoPointersSolutions {
      }
 
      // 844. Backspace String Compare
-     public boolean backspaceCompare(String s, String t) {
+     public static boolean backspaceCompare(String s, String t) {
         int si = s.length() - 1, ti = t.length() - 1;
         while (si>=0 || ti>=0) {
             int count = 0;
